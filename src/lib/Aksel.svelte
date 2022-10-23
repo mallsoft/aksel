@@ -24,7 +24,7 @@
 		birdx.set(innerWidth * Math.random(), { hard: true });
 
 		const evLoop = setInterval(() => {
-			if (walking) return;
+			if (walking || document.visibilityState === 'hidden') return;
 
 			if (Math.random() < 0.15) {
 				const sign = Math.random() < 0.5 ? -1 : 1;
@@ -40,6 +40,8 @@
 		};
 	});
 </script>
+
+<svelte:window bind:innerWidth />
 
 {#if show}
 	<svg
@@ -116,8 +118,6 @@
 		</g>
 	</svg>
 {/if}
-
-<svelte:window bind:innerWidth />
 
 <style>
 	svg {
