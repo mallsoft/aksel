@@ -14,4 +14,6 @@ Aksel the seagull you needed on your site.
 <Aksel />
 <!-- or -->
 <Aksel size="{64}" />
+<!-- or -->
+<Aksel size="{9000}" />
 ```
