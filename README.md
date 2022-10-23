@@ -6,6 +6,7 @@ Aksel the seagull you needed on your site.
 
 ## Use
 
+```JS
 <script>
 	import Aksel from 'aksel/Aksel.svelte';
 </script>
@@ -13,3 +14,4 @@ Aksel the seagull you needed on your site.
 <div>
 	<Aksel size="{64}" />
 </div>
+```
