@@ -20,6 +20,6 @@ jobs:
         with:
           plugins: |
             ['@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', ['@semantic-release/npm', { pkgRoot: './package' }], '@semantic-release/github']
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
