@@ -8,10 +8,10 @@ Aksel the seagull you needed on your site.
 
 ```JS
 <script>
-	import Aksel from 'aksel/Aksel.svelte';
+  import Aksel from 'aksel';
 </script>
 
-<div>
-	<Aksel size="{64}" />
-</div>
+<Aksel />
+<!-- or -->
+<Aksel size="{64}" />
 ```
