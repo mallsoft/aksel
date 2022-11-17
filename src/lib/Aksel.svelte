@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { spring } from 'svelte/motion';
 	import { onMount } from 'svelte';
-	let show = false;
+	let live = false;
 	let walking = false;
 	let left = false;
 	let innerWidth: number;
+	type Look = 'look_down' | '' | 'look_up';
+	let look: Look = '';
 
 	export let size = 64;
 	let xmasMode = new Date().getMonth() === 11;
@@ -20,7 +22,7 @@
 	}
 
 	onMount(() => {
-		show = true;
+		live = true;
 		birdx.set(innerWidth * Math.random(), { hard: true });
 
 		const evLoop = setInterval(() => {
@@ -28,10 +30,14 @@
 
 			if (Math.random() < 0.15) {
 				const sign = Math.random() < 0.5 ? -1 : 1;
-				const amount = Math.random() * (innerWidth * 0.05) * sign;
-				const x = Math.min(Math.max(0, $birdx + amount), innerWidth - size);
+				const amount = Math.random() * (innerWidth * 0.05 + size);
+				const x = Math.min(Math.max(0, $birdx + amount * sign), innerWidth - size);
 
 				walkTo(x);
+			}
+
+			if (Math.random() > 0.9) {
+				look = ['look_down', '', 'look_up'][Math.round(Math.random() * 2 - 1)] as Look;
 			}
 		}, 250);
 
@@ -43,7 +49,7 @@
 
 <svelte:window bind:innerWidth />
 
-{#if show}
+{#if live}
 	<svg
 		data-name="likeswaffels"
 		class:walking
@@ -77,7 +83,7 @@
 			stroke-width="5"
 			d="M30 120h200a100 100 0 0 1-200 0Z"
 		/>
-		<g class="head">
+		<g class="head {look}">
 			<path
 				fill="#ffda36"
 				stroke="#737373"
@@ -136,8 +142,8 @@
 	}
 
 	.walking .smallwing {
-		transform-origin: 100% 1%;
-		animation: wiggleSmallwing 0.3s infinite;
+		transform-origin: 115% 15%;
+		animation: wiggleSmallwing 0.25s infinite ease-out;
 	}
 	.walking .stjert {
 		transform-origin: 100% 1%;
@@ -158,15 +164,27 @@
 		animation: blink 2s 0.5s forwards;
 	}
 
+	.head {
+		transition: 0.4s ease;
+		transform-origin: bottom right;
+	}
+	.head.look_up {
+		transform: translate(-1px, -5px) rotate(-7deg);
+	}
+	.head.look_down {
+		/* transform: translate(-13px, 18px) rotate(-8deg); */
+		transform: translate(-3px, 22px) rotate(9deg);
+	}
+
 	@keyframes walking1 {
 		50% {
-			transform: translate(14px, 0) rotate(-5deg);
+			transform: translateX(20px);
 		}
 	}
 
 	@keyframes walking2 {
 		50% {
-			transform: translate(-14px, 0) rotate(5deg);
+			transform: translateX(-20px);
 		}
 	}
 
@@ -181,7 +199,7 @@
 
 	@keyframes wiggleStjert {
 		50% {
-			transform: rotate(-3deg) translateX(2px);
+			transform: translateX(2px);
 		}
 	}
 
