@@ -1,6 +1,14 @@
 {
 	"name": "aksel",
 	"version": "0.0.1",
+	"homepage": "https://github.com/mallsoft/aksel#readme",
+	"license": "WTFPL",
+	"keywords": [
+		"svelte",
+		"component",
+		"friend",
+		"seagull"
+	],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
