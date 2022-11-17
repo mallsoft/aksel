@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { spring } from 'svelte/motion';
 	import { onMount } from 'svelte';
+
+	export let size: number = 64;
+
+	type Look = 'look_down' | '' | 'look_up';
+
 	let live = false;
 	let walking = false;
 	let left = false;
 	let innerWidth: number;
-	type Look = 'look_down' | '' | 'look_up';
 	let look: Look = '';
-
-	export let size = 64;
 	let xmasMode = new Date().getMonth() === 11;
 
 	const birdx = spring(0, { damping: 0.08, stiffness: 0.003, precision: 1 });
@@ -37,7 +39,7 @@
 			}
 
 			if (Math.random() > 0.9) {
-				look = ['look_down', '', 'look_up'][Math.round(Math.random() * 2 - 1)] as Look;
+				look = ['look_down', '', '', 'look_up'][Math.floor(Math.random() * 4)] as Look;
 			}
 		}, 250);
 
@@ -137,6 +139,7 @@
 	svg * {
 		transform-box: fill-box;
 	}
+
 	.left {
 		transform: scaleX(-1);
 	}
