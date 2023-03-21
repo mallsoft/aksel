@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 
 	export let size: number = 64;
+	export let hoho: boolean = true;
 
 	type Look = 'look_down' | '' | 'look_up';
 
@@ -11,7 +12,7 @@
 	let left = false;
 	let innerWidth: number;
 	let look: Look = '';
-	let xmasMode = new Date().getMonth() === 11;
+	let xmasMode = hoho && new Date().getMonth() === 11;
 
 	const birdx = spring(0, { damping: 0.08, stiffness: 0.003, precision: 1 });
 

@@ -11,9 +11,13 @@ Aksel the seagull you needed on your site.
   import Aksel from 'aksel';
 </script>
 
+<!-- whatever you feel like (default size is 64) -->
 <Aksel />
 <!-- or -->
 <Aksel size="{64}" />
 <!-- or -->
 <Aksel size="{9000}" />
+
+<!-- no xmas EVER ( aka 'grinch mode' ) -->
+<Aksel hoho={false} />
 ```

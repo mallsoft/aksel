@@ -2,12 +2,20 @@
 	import Aksel from '$lib/Aksel.svelte';
 </script>
 
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Aksel showcase</h1>
 
-<Aksel size={500} />
+<Aksel size={800} />
+<Aksel size={200} />
+<Aksel size={100} />
 <Aksel />
 <Aksel />
-<Aksel />
-<Aksel />
+
+<!-- no xmas -->
+<Aksel hoho={false} />
+
+<style>
+	:global(*) {
+		font-family: monospace;
+		color: #444;
+	}
+</style>
