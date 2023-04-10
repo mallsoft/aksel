@@ -4,14 +4,13 @@
 
 <h1>Aksel showcase</h1>
 
-<Aksel size={800} />
-<Aksel size={200} />
+<!-- <Aksel size={200} />
 <Aksel size={100} />
 <Aksel />
-<Aksel />
+<Aksel /> -->
 
 <!-- no xmas -->
-<Aksel hoho={false} />
+<Aksel xmasMode />
 
 <style>
 	:global(*) {

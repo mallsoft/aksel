@@ -16,8 +16,8 @@ Aksel the seagull you needed on your site.
 <!-- or -->
 <Aksel size="{64}" />
 <!-- or -->
-<Aksel size="{9000}" />
+<Aksel size="{ /* some expression that evaluates to a number... */ }" />
 
-<!-- no xmas EVER ( aka 'grinch mode' ) -->
-<Aksel hoho={false} />
+<!-- xmasMode - by default this is true when "new Date().getMonth() === 11" (december)  -->
+<Aksel xmasMode={/* some expression or false for no xmas */} />
 ```
